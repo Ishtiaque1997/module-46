@@ -6,7 +6,6 @@ const Country = (props) => {
   
  return (
   <div className='country'>
-   <h1>this is a single country</h1>
    <img src={flag} alt="" />
    <p><small>{region}</small></p>
    <h3>{name}</h3>

@@ -7,12 +7,12 @@ import './Countries.css'
 const Countries = () => {
  const[countries,setCountries]=useState([]);
  useEffect( ()=>{
-  fetch('https://api.countrylayer.com/v2/')
+  fetch('https://restcountries.com/v2/all')
   .then(res=>res.json())
   .then(data=>setCountries(data))
  },[])
  return (
-  <div className='container'>
+  <div className='countries-container'>
    {
     countries.map(country=><Country 
      key={country.capital}
