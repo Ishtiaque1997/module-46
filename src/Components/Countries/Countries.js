@@ -1,18 +1,24 @@
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react/cjs/react.development';
+import Country from '../Country/Country';
+import './Countries.css'
 
 const Countries = () => {
  const[countries,setCountries]=useState([]);
  useEffect( ()=>{
-  fetch('https://restcountries.com/v3.1/all')
+  fetch('https://api.countrylayer.com/v2/')
   .then(res=>res.json())
   .then(data=>setCountries(data))
  },[])
  return (
-  <div>
-   <h1>Hello from countries:{countries.length}</h1>
-   
+  <div className='container'>
+   {
+    countries.map(country=><Country 
+     key={country.capital}
+     country={country}></Country>)
+   }
+    
   </div>
  );
 };
